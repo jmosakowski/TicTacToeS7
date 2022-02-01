@@ -37,12 +37,14 @@ namespace TicTacToeS7
 
                 if (nextIsPlayer1)
                 {
-                    
+                    Console.WriteLine(p1.Name + " move");
+                    player1Won = p1.MakeMove(startBoard, gameBoard);
                     nextIsPlayer1 = false;
                 }
                 else
                 {
-                    
+                    Console.WriteLine(p2.Name + " move");
+                    player2Won = p2.MakeMove(startBoard, gameBoard);
                     nextIsPlayer1 = true;
                 }
 
@@ -56,7 +58,12 @@ namespace TicTacToeS7
             Console.Clear();
             Draw(gameBoard);
             Console.Write("Game ended! ");
-            // TODO: print who won
+            if (player1Won)
+                Console.WriteLine("Winner: " + p1.Name);
+            else if (player2Won)
+                Console.WriteLine("Winner: " + p2.Name);
+            else
+                Console.WriteLine("A tie!");
         }
 
         /******************************************************************/
